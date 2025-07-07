@@ -1,0 +1,8 @@
+## Interface: 100207
+## Title: Conflict Resolution Engine
+## Notes: A compact dice roller addon with character management for Strikes and Damage Reduction
+## Author: Ridrith
+## Version: 1.5.4
+## SavedVariables: ConflictResolutionEngineDB
+
+ConflictResolutionEngine.lua
