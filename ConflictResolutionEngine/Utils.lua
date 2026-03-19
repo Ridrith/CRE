@@ -102,13 +102,13 @@ local b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 
 function ns.EncodeString(str)
     local encoded = {}
-    local padding = 0
     for i = 1, #str, 3 do
         local b1 = str:byte(i) or 0
-        local b2 = str:byte(i + 1) or (padding < 2 and 0 or nil) or 0
-        local b3 = str:byte(i + 2) or (padding < 1 and 0 or nil) or 0
-        if not str:byte(i + 1) then padding = 2
-        elseif not str:byte(i + 2) then padding = 1 end
+        local b2 = str:byte(i + 1)
+        local b3 = str:byte(i + 2)
+        local padding = (not b2) and 2 or (not b3) and 1 or 0
+        b2 = b2 or 0
+        b3 = b3 or 0
         local n = b1 * 65536 + b2 * 256 + b3
         encoded[#encoded + 1] = b64chars:sub(math.floor(n / 262144) + 1, math.floor(n / 262144) + 1)
         encoded[#encoded + 1] = b64chars:sub(math.floor(n / 4096) % 64 + 1, math.floor(n / 4096) % 64 + 1)

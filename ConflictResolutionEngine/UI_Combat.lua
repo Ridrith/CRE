@@ -14,7 +14,7 @@ function ns.BuildCombatTab(panel)
     strikesLabel:SetPoint("TOPLEFT", panel, "TOPLEFT", 8, -8)
 
     -- Strike bar background
-    local barBg = CreateFrame("Frame", nil, panel, "BackdropTemplateMixin and BackdropTemplate")
+    local barBg = CreateFrame("Frame", nil, panel, "BackdropTemplate")
     barBg:SetSize(300, 22)
     barBg:SetPoint("TOPLEFT", strikesLabel, "BOTTOMLEFT", 0, -4)
     barBg:SetBackdrop({ bgFile = "Interface/Tooltips/UI-Tooltip-Background", tile=true, tileSize=8 })

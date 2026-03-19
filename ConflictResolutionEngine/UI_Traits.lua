@@ -45,7 +45,7 @@ function ns.BuildTraitsTab(panel)
     traitsUI.listContent = listContent
 
     -- ── Right: detail pane ──
-    local detailBg = CreateFrame("Frame", nil, panel, "BackdropTemplateMixin and BackdropTemplate")
+    local detailBg = CreateFrame("Frame", nil, panel, "BackdropTemplate")
     detailBg:SetSize(220, 440)
     detailBg:SetPoint("TOPLEFT", listScroll, "TOPRIGHT", 6, 0)
     ns.SetDarkBackdrop(detailBg, 2)

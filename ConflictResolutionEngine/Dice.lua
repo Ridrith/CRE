@@ -196,7 +196,9 @@ end
 -- Build a printable string for a standard roll result
 function ns.FormatRollResult(result, label)
     label = label or result.expr
-    local rollColor = D20Color(result.total - result.modifier, result.rolls and result.rolls[1] and #result.rolls == 1 and result.rolls[1] or 0)
+    -- For nat 20/1 coloring: extract the raw single-die roll if applicable
+    local rawRoll = (result.rolls and #result.rolls == 1) and result.rolls[1] or 0
+    local rollColor = D20Color(rawRoll, rawRoll)
 
     -- Detect if it's a d20 roll (single die, sides=20) for natural 1/20 coloring
     local kept = result.kept or result.rolls or {}

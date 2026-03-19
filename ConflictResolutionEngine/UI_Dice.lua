@@ -216,9 +216,9 @@ function ns.RefreshDiceHistory()
         local modStr  = (result.modifier and result.modifier ~= 0) and
                         (" " .. (result.modifier > 0 and "+" or "") .. result.modifier) or ""
 
-        -- Result display with nat 20/1 coloring for d20 rolls
+        -- Result display with nat 20/1 coloring for d20 rolls (only when no modifier)
         local totalColor = "|cFFFFFFFF"
-        if result.total and not result.modifier or result.modifier == 0 then
+        if result.total and (not result.modifier or result.modifier == 0) then
             if result.total == 20 then totalColor = "|cFFFFD700"
             elseif result.total == 1 then totalColor = "|cFFFF3333" end
         end

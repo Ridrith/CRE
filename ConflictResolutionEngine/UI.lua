@@ -39,7 +39,7 @@ ns.activeTab = 1
 local mainFrame
 
 local function CreateMainFrame()
-    mainFrame = CreateFrame("Frame", "CREMainFrame", UIParent, "BackdropTemplateMixin and BackdropTemplate")
+    mainFrame = CreateFrame("Frame", "CREMainFrame", UIParent, "BackdropTemplate")
     mainFrame:SetSize(520, 620)
     mainFrame:SetPoint("CENTER", UIParent, "CENTER")
     mainFrame:SetMovable(true)
@@ -104,7 +104,7 @@ local function CreateTabs(parent)
     local tabY = -28
 
     for i, name in ipairs(TAB_NAMES) do
-        local tab = CreateFrame("Button", "CRETab" .. i, parent, "BackdropTemplateMixin and BackdropTemplate")
+        local tab = CreateFrame("Button", "CRETab" .. i, parent, "BackdropTemplate")
         tab:SetSize(tabWidth, tabHeight)
         tab:SetPoint("TOPLEFT", parent, "TOPLEFT", (i - 1) * (tabWidth + 2) + 4, tabY)
         SetDarkBackdrop(tab, 2)
@@ -134,7 +134,7 @@ local function CreateTabs(parent)
         ns.tabs[i] = tab
 
         -- Content panel for this tab
-        local panel = CreateFrame("Frame", "CREPanel" .. i, parent, "BackdropTemplateMixin and BackdropTemplate")
+        local panel = CreateFrame("Frame", "CREPanel" .. i, parent, "BackdropTemplate")
         panel:SetPoint("TOPLEFT",  parent, "TOPLEFT",  6,  -(28 + tabHeight + 4))
         panel:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", -6, 6)
         panel:SetBackdrop({
@@ -290,7 +290,7 @@ end
 function ns.MakeButton(parent, label, width, height)
     width  = width  or 100
     height = height or 22
-    local btn = CreateFrame("Button", nil, parent, "BackdropTemplateMixin and BackdropTemplate")
+    local btn = CreateFrame("Button", nil, parent, "BackdropTemplate")
     btn:SetSize(width, height)
     btn:SetBackdrop({
         bgFile   = "Interface/Tooltips/UI-Tooltip-Background",
@@ -320,7 +320,7 @@ end
 function ns.MakeEditBox(parent, width, height, label)
     width  = width  or 120
     height = height or 20
-    local eb = CreateFrame("EditBox", nil, parent, "BackdropTemplateMixin and BackdropTemplate")
+    local eb = CreateFrame("EditBox", nil, parent, "BackdropTemplate")
     eb:SetSize(width, height)
     eb:SetAutoFocus(false)
     eb:SetFontObject("GameFontNormalSmall")
